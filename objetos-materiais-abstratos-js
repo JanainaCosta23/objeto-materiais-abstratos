@@ -1,0 +1,123 @@
+// Objetos materiais
+// Objeto Computador
+function Computador(marca, modelo, sistemaOperacional) {
+    this.marca = marca; 
+    this.modelo = modelo; 
+    this.sistemaOperacional = sistemaOperacional; 
+    this.ligado = false;
+    this.programa = null;
+
+    this.ligar = function() {
+      this.ligado = true;
+      console.log("O computador está ligado.");
+    };
+    
+    this.desligar = function() {
+      this.ligado = false;
+      this.programa = null;
+      console.log("O computador está desligado.");
+    };
+    
+    this.executarSoftware = function(programa) {
+      if (this.ligado) {
+        this.programa = programa;
+        console.log("Abrindo o programa " + programa);
+      } else {
+        console.log("O computador está desligado. Ligue o computador antes de abrir um programa.");
+      }
+    };
+  }
+  
+  // Exemplo de uso do objeto Computador
+  const computador1 = new Computador("Dell", "XPS 15", "Windows 10");
+  computador1.ligar();
+  computador1.executarSoftware("Visual Studio Code");
+  computador1.desligar();
+  
+  // Definição do objeto Celular
+  function celular(marca, modelo, sistemaOperacional) { 
+    this.marca = marca;
+    this.modelo = modelo;
+    this.sistemaOperacional = sistemaOperacional;
+    this.ligado = false;
+
+    this.ligar = function() {
+      this.ligado = true;
+      console.log("O celular está ligado.");
+    };
+    
+    this.desligar = function() {
+      this.ligado = false;
+      console.log("O celular está desligado.");
+    };
+    
+    this.enviarMensagem = function(destinatario, mensagem) {
+      if (this.ligado) {
+        console.log("Enviando mensagem para " + destinatario + ": " + mensagem);
+      } else {
+        console.log("O celular está desligado. Ligue o celular antes de enviar uma mensagem.");
+      }
+    };
+  }
+  
+  // Exemplo de uso do objeto Celular
+  const celular = new celular("Apple", "iPhone 13", "iOS");
+  meuCelular.ligar();
+  meuCelular.enviarMensagem("Pessoal", "Olá, boa noite!");
+  meuCelular.desligar();
+
+
+// Objetos abstratos.
+
+// Definição do objeto Conta de Usuário
+function ContaUsuario(nomeUsuario, email) { 
+    this.nomeUsuario = nomeUsuario;
+    this.email = email;
+    this.dataRegistro = new Date();
+    this.logado = false;
+ 
+    this.fazerLogin = function() {
+      this.logado = true;
+      console.log("Usuário " + this.nomeUsuario + " fez login.");
+    };
+    
+    this.alterarSenha = function(novaSenha) {
+      console.log("Senha da conta de " + this.nomeUsuario + " alterada para " + novaSenha);
+    };
+    
+    this.logoff = function() {
+      console.log("Conta de " + this.nomeUsuario + " deslogou.");
+    };
+  }
+  
+  // Exemplo de uso do objeto Conta de Usuário
+  const minhaConta = new ContaUsuario("Janaina", "janainabarbie1@email.com");
+  minhaConta.fazerLogin();
+  minhaConta.alterarSenha("123456");
+  minhaConta.logoff();
+  
+  // Definição do objeto Postagem de Rede Social
+  function PostagemRedeSocial(autor, conteudo) {
+    this.autor = autor;
+    this.conteudo = conteudo;
+    this.dataPublicacao = new Date();
+    
+    this.editarPostagem = function(novoConteudo) {
+      this.conteudo = novoConteudo;
+      console.log("Postagem de " + this.autor + " editada: " + novoConteudo);
+    };
+    
+    this.compartilhar = function() {
+      console.log("Postagem de " + this.autor + " compartilhada nas redes sociais.");
+    };
+    
+    this.excluirPostagem = function() {
+      console.log("Postagem de " + this.autor + " excluída.");
+    };
+  }
+  
+  // Exemplo de uso do objeto Postagem de Rede Social
+  const minhaPostagem = new PostagemRedeSocial("Janaina", "Minha primeira postagem!");
+  minhaPostagem.editarPostagem("Editei minha postagem!");
+  minhaPostagem.compartilhar();
+  minhaPostagem.excluirPostagem();
